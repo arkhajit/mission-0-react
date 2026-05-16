@@ -1,32 +1,63 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import './Navbar.css'
 
 const links = ['News', 'Events', 'Resources', 'About']
 
 export default function Navbar() {
   const [open, setOpen] = useState(false)
+  const [scrolled, setScrolled] = useState(false)
+
+  useEffect(() => {
+    const onScroll = () => setScrolled(window.scrollY > 10)
+    window.addEventListener('scroll', onScroll)
+    return () => window.removeEventListener('scroll', onScroll)
+  }, [])
 
   return (
     <>
-      <nav className="navbar">
-        <div className="logo">
+      <nav className={`navbar${scrolled ? ' scrolled' : ''}`}>
+        <a href="#" className="logo">
           <div className="logo-circle">MA</div>
-          <span className="logo-text">Marketing Association NZ</span>
-        </div>
+          <div className="logo-text">
+            <span className="logo-main">Marketing Association</span>
+            <span className="logo-sub">New Zealand</span>
+          </div>
+        </a>
+
         <ul className="nav-links">
-          {links.map(l => <li key={l}><a href="#">{l}</a></li>)}
+          {links.map(l => (
+            <li key={l}>
+              <a href="#" className="nav-link">{l}</a>
+            </li>
+          ))}
         </ul>
-        <button className="btn-login desktop-only">Login</button>
-        <button className="hamburger" onClick={() => setOpen(!open)} aria-label="Menu">
+
+        <div className="nav-actions desktop-only">
+          <a href="#" className="btn-join">Join Now</a>
+          <a href="#" className="btn-login">Login</a>
+        </div>
+
+        <button
+          className={`hamburger${open ? ' is-open' : ''}`}
+          onClick={() => setOpen(!open)}
+          aria-label="Toggle menu"
+          aria-expanded={open}
+        >
           <span /><span /><span />
         </button>
       </nav>
-      {open && (
-        <div className="mobile-menu">
-          {links.map(l => <a key={l} href="#">{l}</a>)}
-          <button className="btn-login">Login</button>
+
+      <div className={`mobile-menu${open ? ' is-open' : ''}`}>
+        <div className="mobile-menu-inner">
+          {links.map(l => (
+            <a key={l} href="#" className="mobile-link" onClick={() => setOpen(false)}>{l}</a>
+          ))}
+          <div className="mobile-actions">
+            <a href="#" className="btn-join">Join Now</a>
+            <a href="#" className="btn-login">Login</a>
+          </div>
         </div>
-      )}
+      </div>
     </>
   )
 }

@@ -1,8 +1,135 @@
 .footer {
   background: var(--navy);
   color: rgba(255,255,255,0.7);
-  text-align: center;
-  padding: 1.5rem 2rem;
-  font-size: 0.88rem;
 }
-.footer span { color: var(--gold); font-weight: 600; }
+
+.footer-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 4rem 2.5rem 3rem;
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr 1.8fr;
+  gap: 3rem;
+}
+
+/* Brand */
+.footer-logo {
+  display: flex; align-items: center; gap: 12px;
+  margin-bottom: 1rem;
+}
+.footer-logo-circle {
+  width: 42px; height: 42px;
+  background: var(--gold);
+  border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  font-weight: 800; font-size: 1rem; color: var(--navy);
+  flex-shrink: 0;
+}
+.footer-logo > div { display: flex; flex-direction: column; line-height: 1.25; }
+.footer-logo-main { color: var(--white); font-size: 0.95rem; font-weight: 700; }
+.footer-logo-sub  { color: var(--gold); font-size: 0.72rem; font-weight: 500; }
+
+.footer-desc {
+  font-size: 0.875rem; line-height: 1.7;
+  margin-bottom: 1.5rem;
+  max-width: 260px;
+}
+
+/* Social */
+.social-links { display: flex; gap: 10px; }
+.social-btn {
+  width: 36px; height: 36px;
+  border-radius: 50%;
+  border: 1px solid rgba(255,255,255,0.2);
+  display: flex; align-items: center; justify-content: center;
+  color: rgba(255,255,255,0.7);
+  font-size: 0.8rem; font-weight: 700;
+  transition: border-color 0.2s, background 0.2s, color 0.2s;
+}
+.social-btn:hover {
+  border-color: var(--gold);
+  background: var(--gold);
+  color: var(--navy);
+}
+
+/* Columns */
+.footer-heading {
+  color: var(--white);
+  font-size: 0.875rem; font-weight: 700;
+  text-transform: uppercase; letter-spacing: 0.08em;
+  margin-bottom: 1.1rem;
+}
+.footer-links { display: flex; flex-direction: column; gap: 0.6rem; }
+.footer-links a {
+  font-size: 0.875rem;
+  color: rgba(255,255,255,0.65);
+  transition: color 0.2s;
+}
+.footer-links a:hover { color: var(--gold); }
+
+/* Newsletter */
+.newsletter-desc { font-size: 0.875rem; margin-bottom: 1rem; line-height: 1.6; }
+.newsletter-form {
+  display: flex; flex-direction: column; gap: 8px;
+  margin-bottom: 0.6rem;
+}
+.newsletter-form input {
+  background: rgba(255,255,255,0.08);
+  border: 1px solid rgba(255,255,255,0.18);
+  border-radius: var(--radius-sm);
+  padding: 10px 14px;
+  font-size: 0.875rem; font-family: inherit;
+  color: var(--white); outline: none;
+  transition: border-color 0.2s;
+}
+.newsletter-form input::placeholder { color: rgba(255,255,255,0.4); }
+.newsletter-form input:focus { border-color: var(--gold); }
+.newsletter-form button {
+  background: var(--gold); color: var(--navy);
+  border: none; cursor: pointer;
+  padding: 10px 16px;
+  border-radius: var(--radius-sm);
+  font-weight: 700; font-size: 0.875rem; font-family: inherit;
+  transition: background 0.2s;
+}
+.newsletter-form button:hover { background: var(--gold2); }
+.newsletter-note { font-size: 0.75rem; color: rgba(255,255,255,0.4); }
+
+/* Bottom bar */
+.footer-bottom {
+  border-top: 1px solid rgba(255,255,255,0.1);
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 1.25rem 2.5rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+  font-size: 0.82rem;
+}
+.footer-bottom span { color: var(--gold); font-weight: 600; }
+.footer-bottom-links { display: flex; gap: 1.5rem; }
+.footer-bottom-links a {
+  color: rgba(255,255,255,0.5);
+  font-size: 0.82rem;
+  transition: color 0.2s;
+}
+.footer-bottom-links a:hover { color: var(--white); }
+
+@media (max-width: 1024px) {
+  .footer-inner { grid-template-columns: 1fr 1fr; gap: 2rem; }
+  .footer-brand { grid-column: 1 / -1; }
+  .footer-newsletter { grid-column: 1 / -1; }
+  .newsletter-form { flex-direction: row; }
+  .newsletter-form input { flex: 1; }
+}
+
+@media (max-width: 600px) {
+  .footer-inner { grid-template-columns: 1fr; padding: 2.5rem 1.25rem 2rem; }
+  .footer-brand { grid-column: auto; }
+  .footer-newsletter { grid-column: auto; }
+  .newsletter-form { flex-direction: column; }
+  .footer-bottom { flex-direction: column; text-align: center; padding: 1rem 1.25rem; }
+  .footer-bottom-links { justify-content: center; }
+}
