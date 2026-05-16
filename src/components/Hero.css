@@ -1,15 +1,15 @@
 .hero {
   background: linear-gradient(135deg, var(--navy) 0%, #1e3a7a 50%, var(--teal) 100%);
-  padding: 0 2.5rem;
+  padding: 0;
+  width: 100%;
 }
 
 .hero-inner {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 4rem 0 3rem;
+  width: 100%;
+  padding: 4rem 5rem 3rem;
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 3rem;
+  gap: 4rem;
   align-items: center;
 }
 
@@ -137,9 +137,8 @@
 /* Stats bar */
 .hero-stats {
   border-top: 1px solid rgba(255,255,255,0.12);
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 1.5rem 0 2rem;
+  width: 100%;
+  padding: 1.5rem 5rem 2rem;
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   gap: 1rem;
@@ -162,14 +161,14 @@
 }
 
 @media (max-width: 900px) {
-  .hero-inner { grid-template-columns: 1fr; gap: 2rem; padding: 2.5rem 0 2rem; }
+  .hero-inner { grid-template-columns: 1fr; gap: 2rem; padding: 2.5rem 2rem 2rem; }
   .hero-image { display: none; }
-  .hero-stats { grid-template-columns: repeat(2, 1fr); }
+  .hero-stats { grid-template-columns: repeat(2, 1fr); padding: 1.5rem 2rem 2rem; }
   .search-bar { max-width: 100%; }
 }
 
 @media (max-width: 600px) {
-  .hero { padding: 0 1.25rem; }
-  .hero-stats { grid-template-columns: repeat(2, 1fr); }
+  .hero-inner { padding: 2rem 1.25rem 1.5rem; }
+  .hero-stats { padding: 1.25rem 1.25rem 1.5rem; grid-template-columns: repeat(2, 1fr); }
   .hero-text p { font-size: 0.97rem; }
 }
