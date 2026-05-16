@@ -1,7 +1,7 @@
 .navbar {
   background: var(--navy);
   position: sticky; top: 0; z-index: 200;
-  padding: 0 2.5rem;
+  padding: 0 5rem;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -109,6 +109,9 @@
 .mobile-actions .btn-login,
 .mobile-actions .btn-join { flex: 1; text-align: center; }
 
+@media (max-width: 900px) {
+  .navbar { padding: 0 2rem; }
+}
 @media (max-width: 768px) {
   .navbar { padding: 0 1.25rem; }
   .nav-links, .desktop-only { display: none; }
