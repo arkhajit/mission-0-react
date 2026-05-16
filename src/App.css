@@ -1,0 +1,23 @@
+:root {
+  --navy: #1a2d5a;
+  --teal: #0e7c7b;
+  --gold: #f0a500;
+  --light: #f5f7fa;
+  --white: #ffffff;
+  --text: #222222;
+  --muted: #666666;
+  --radius: 10px;
+  --shadow: 0 4px 16px rgba(0,0,0,0.10);
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  font-family: 'Segoe UI', Arial, sans-serif;
+  background: var(--light);
+  color: var(--text);
+  min-height: 100vh;
+}
+
+img { display: block; width: 100%; object-fit: cover; }
+a   { text-decoration: none; color: inherit; }
