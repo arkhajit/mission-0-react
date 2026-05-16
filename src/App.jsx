@@ -6,12 +6,14 @@ import './App.css'
 
 function App() {
   return (
-    <>
+    <div className="app">
       <Navbar />
-      <Hero />
-      <NewsGrid />
+      <main style={{ flex: 1 }}>
+        <Hero />
+        <NewsGrid />
+      </main>
       <Footer />
-    </>
+    </div>
   )
 }
 
