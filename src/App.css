@@ -10,15 +10,15 @@
   --text:   #1e1e2e;
   --muted:  #64748b;
   --border: #e2e8f0;
-  --radius: 12px;
-  --radius-sm: 8px;
-  --shadow: 0 4px 20px rgba(0,0,0,0.08);
-  --shadow-lg: 0 8px 32px rgba(0,0,0,0.14);
+  --radius: 14px;
+  --radius-sm: 10px;
+  --shadow: 0 4px 24px rgba(0,0,0,0.09);
+  --shadow-lg: 0 12px 40px rgba(0,0,0,0.16);
 }
 
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
-html { scroll-behavior: smooth; width: 100%; }
+html { scroll-behavior: smooth; width: 100%; font-size: 18px; }
 
 .app {
   display: flex;
@@ -34,6 +34,7 @@ body {
   min-height: 100vh;
   line-height: 1.6;
   -webkit-font-smoothing: antialiased;
+  font-size: 1rem;
 }
 
 img { display: block; width: 100%; object-fit: cover; }
